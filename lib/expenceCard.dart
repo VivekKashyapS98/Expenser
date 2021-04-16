@@ -2,11 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class ExpenceCard extends StatelessWidget {
+  final int id;
   final String expenseName;
   final int amount;
   final String date;
+  final Function deleteFunction;
 
-  ExpenceCard({this.expenseName, this.amount, this.date});
+  ExpenceCard({
+    this.id,
+    this.expenseName,
+    this.amount,
+    this.date,
+    this.deleteFunction,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +22,7 @@ class ExpenceCard extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
               child: Text(
@@ -46,6 +54,10 @@ class ExpenceCard extends StatelessWidget {
                 ),
               ],
             ),
+            IconButton(
+              icon: Icon(Icons.delete_rounded),
+              onPressed: () => deleteFunction(this.id),
+            )
           ],
         ),
       ),
