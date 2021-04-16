@@ -62,7 +62,7 @@ class _Expences extends State<ExpenceTracker> {
               (obj) {
                 return AnimatedContainer(
                   duration: Duration(milliseconds: 500),
-                  curve: Curves.easeInOut,
+                  curve: Curves.decelerate,
                   child: ExpenceCard(
                     id: obj["id"],
                     expenseName: obj["title"],
