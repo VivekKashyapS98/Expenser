@@ -11,18 +11,43 @@ class ExpenceCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: Row(
-        children: [
-          Container(
-            child: Text(amount.toString()),
-          ),
-          Column(
-            children: [
-              Text(expenseName),
-              Text(date.toString()),
-            ],
-          ),
-        ],
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Container(
+              child: Text(
+                "\$" + amount.toString(),
+                style: TextStyle(
+                  color: Colors.grey[600],
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text(
+                  expenseName,
+                  style: TextStyle(
+                    color: Colors.grey[700],
+                    fontSize: 17,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  date.toString(),
+                  style: TextStyle(
+                    color: Colors.grey,
+                    // fontSize: 17,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

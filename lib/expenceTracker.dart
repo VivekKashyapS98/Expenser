@@ -28,6 +28,11 @@ class _Expences extends State<ExpenceTracker> {
       "cost": 2500,
       "date": "Mon 12, 2021",
     },
+    {
+      "title": "Bluetooth Speaker",
+      "cost": 2100,
+      "date": "Mon 12, 2021",
+    },
   ];
   var _input = {
     "title": "",
