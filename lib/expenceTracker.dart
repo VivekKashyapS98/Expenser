@@ -46,11 +46,11 @@ class _Expences extends State<ExpenceTracker> {
     });
   }
 
-  var _input = {
-    "title": "",
-    "cost": 0,
-    "date": "",
-  };
+  // var _input = {
+  //   "title": "",
+  //   "cost": 0,
+  //   "date": "",
+  // };
 
   @override
   Widget build(BuildContext context) {
