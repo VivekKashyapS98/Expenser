@@ -42,13 +42,13 @@ class _Expences extends State<ExpenceTracker> {
     },
   ];
 
-  void deleteExpense(id) {
+  void _deleteExpense(id) {
     setState(() {
       _expenceList.removeWhere((element) => element["id"] == id);
     });
   }
 
-  void addNewExpense(BuildContext ctx) {
+  void _showAddNewExpense(BuildContext ctx) {
     showModalBottomSheet(
       context: ctx,
       builder: (_) {
@@ -77,7 +77,7 @@ class _Expences extends State<ExpenceTracker> {
                       expenseName: obj["title"],
                       amount: obj["cost"],
                       date: obj["date"],
-                      deleteFunction: deleteExpense,
+                      deleteFunction: _deleteExpense,
                     ),
                   );
                 },
@@ -90,7 +90,7 @@ class _Expences extends State<ExpenceTracker> {
           FloatingActionButtonLocation.miniCenterFloat,
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: () {},
+        onPressed: () => _showAddNewExpense(context),
       ),
     );
   }
