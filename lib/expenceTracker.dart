@@ -1,4 +1,6 @@
-import 'package:expencer/expenceCard.dart';
+import 'package:expencer/newExpense.dart';
+
+import 'expenceCard.dart';
 import 'package:flutter/material.dart';
 
 class ExpenceTracker extends StatefulWidget {
@@ -46,35 +48,49 @@ class _Expences extends State<ExpenceTracker> {
     });
   }
 
-  // var _input = {
-  //   "title": "",
-  //   "cost": 0,
-  //   "date": "",
-  // };
+  void addNewExpense(BuildContext ctx) {
+    showModalBottomSheet(
+      context: ctx,
+      builder: (_) {
+        return NewExpence();
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Column(
-          children: [
-            ..._expenceList.map(
-              (obj) {
-                return AnimatedContainer(
-                  duration: Duration(milliseconds: 500),
-                  curve: Curves.decelerate,
-                  child: ExpenceCard(
-                    id: obj["id"],
-                    expenseName: obj["title"],
-                    amount: obj["cost"],
-                    date: obj["date"],
-                    deleteFunction: deleteExpense,
-                  ),
-                );
-              },
-            ),
-          ],
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Expencer"),
+      ),
+      body: Container(
+        child: Center(
+          child: Column(
+            children: [
+              ..._expenceList.map(
+                (obj) {
+                  return AnimatedContainer(
+                    duration: Duration(milliseconds: 500),
+                    curve: Curves.decelerate,
+                    child: ExpenceCard(
+                      id: obj["id"],
+                      expenseName: obj["title"],
+                      amount: obj["cost"],
+                      date: obj["date"],
+                      deleteFunction: deleteExpense,
+                    ),
+                  );
+                },
+              ),
+            ],
+          ),
         ),
+      ),
+      floatingActionButtonLocation:
+          FloatingActionButtonLocation.miniCenterFloat,
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () {},
       ),
     );
   }
